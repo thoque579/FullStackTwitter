@@ -5,6 +5,22 @@
     <title></title>
   </head>
   <body>
-    <%= render "shared/navbar" %>
+    <%= render "shared/navbarFeeds" %>
+    <div class="container">
+      <div class="row">
+        <div class="col-6 ml-4">
+          <div class="col-12 mb-4 mt-3">
+              <textarea type="text" class="form-control post-input" rows="3" placeholder="What's happening?"></textarea
+          </div>
+        </div>
+        <div class="pull-right">
+          <label id="upload-image-btn" for="image-select">Upload image</label>
+          <img src="(unknown)" alt="image preview" id = "image-preview" style = 'display: none;'>
+          <input type="file" name="image" value="image/*" id = "image-select" style = "display: none">
+          <span class = "counter">140</span>
+        </div>
+      </div>
+    </div>
+
   </body>
 </html>
