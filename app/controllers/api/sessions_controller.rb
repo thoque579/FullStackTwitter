@@ -10,9 +10,7 @@ module Api
           httponly: true
         }
 
-        render json: {
-          render 'api/sessions/create'
-        }
+        render '/api/sessions/create'
       else
         render json: {
           success: false
@@ -25,9 +23,8 @@ module Api
       session = Session.find_by(token: token)
 
       if session
-         render json: {
-           render 'api/sessions/authenticated'
-         }
+          @user = session.user
+           render '/api/sessions/authenticated'
       else
         render json: {
           authenticated: false,

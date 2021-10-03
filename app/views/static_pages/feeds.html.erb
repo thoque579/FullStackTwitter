@@ -2,25 +2,35 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>feeds</title>
   </head>
   <body>
-    <%= render "shared/navbarFeeds" %>
-    <div class="container">
-      <div class="row">
-        <div class="col-6 ml-4">
-          <div class="col-12 mb-4 mt-3">
-              <textarea type="text" class="form-control post-input" rows="3" placeholder="What's happening?"></textarea
+    <div class="flex-container">
+      <section>
+        <%= render "shared/navbarFeeds" %>
+        </section>
+      </div>
+        <div class="feed">
+          <h2 class = "feed_header">home</h2>
+
+          <div class="tweetBox">
+            <form>
+              <div class="tweetBoxInput">
+                <img src="https://www.pngarts.com/files/3/Avatar-PNG-Pic.png" alt="Avatar" class = "img_avatar">
+
+                <input type="text" name="" value="" placeholder="whats happening" id = "tweetBoxInput">
+
+              </div>
+              <button type="button" name="button" id = "Post_tweet"><span class = "button-text">Tweet</span></button>
+            </form>
+          </div>
+        </div
+        <div class="search-feature">
+          <div class="search-input">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search Twitter" class = "search_twitter"/>
           </div>
         </div>
-        <div class="pull-right">
-          <label id="upload-image-btn" for="image-select">Upload image</label>
-          <img src="(unknown)" alt="image preview" id = "image-preview" style = 'display: none;'>
-          <input type="file" name="image" value="image/*" id = "image-select" style = "display: none">
-          <span class = "counter">140</span>
-        </div>
-      </div>
-    </div>
 
   </body>
 </html>

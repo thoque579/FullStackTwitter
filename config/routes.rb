@@ -6,12 +6,12 @@ Rails.application.routes.draw do
   get '/feeds' => 'static_pages#feeds'
   namespace :api do
     #user
-    post '/user' => 'users#create'
+    post '/users' => 'users#create'
 
     #sessions
     post '/sessions' => 'sessions#create'
-    post '/authenticated' => 'users#authenticated'
-    delete '/destroy' => 'users#destroy'
+    get '/authenticated' => 'sessions#authenticated'
+    delete '/destroy' => 'sessions#destroy'
 
     #tweets
     post '/tweets' => 'tweets#create'
