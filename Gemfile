@@ -42,7 +42,9 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
+gem 'bcrypt-ruby', '3.1.5', :require => 'bcrypt'
 
+gem 'better_errors', '~> 2.4'
 
 group :test do
   # Adds support for Capybara system testing and selenium driver

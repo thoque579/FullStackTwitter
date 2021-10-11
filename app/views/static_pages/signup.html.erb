@@ -2,25 +2,25 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>login</title>
+    <title>Sign Up</title>
   </head>
   <body>
     <%= render "shared/navbar" %>
     <div class="container">
       <div class="row">
-        <div class="col-lg-6 signup text-align-center">
-          <form id = "sign-up-form">
+        <div class="col-lg-6 layout text-align-center">
+          <form id = "signUp">
             <h1>Sign up</h1>
             <div class="form-group">
-              <input type="text" name="username" class = "form-control username" placeholder="Username" required/>
+              <input type="text" name="username" id = "username_input" class = "form-control" placeholder="Username" required/>
             </div>
             <div class="form-group">
-              <input type="text" name="email" class = "form-control email" placeholder="Email" required />
+              <input type="text" name="email" id = "email_input" class = "form-control" placeholder="Email" required />
             </div>
             <div class="form-group">
-              <input type="password" name="password" class = "form-control password" placeholder="Password" required />
+              <input type="password" name="password" id = "password_input" class = "form-control" placeholder="Password" required />
             </div>
-            <button type="submit" class="btn btn-success" id = "sign-up">Sign up</button>
+            <button type="submit" class="btn btn-success" id = "submit-button">Sign up</button>
             <p>Already have an account? <a class = "text-primary" href="/login">log in</a></p>
           </form>
         </div>

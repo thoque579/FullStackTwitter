@@ -6,6 +6,6 @@ class Session < ApplicationRecord
   private
 
   def generate_session_token
-    self.token = SecureRandom.urlSafe_base64
+    self.token = SecureRandom.urlsafe_base64
   end
 end

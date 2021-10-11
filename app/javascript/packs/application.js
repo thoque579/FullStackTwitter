@@ -8,9 +8,8 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-require("src/feeds.js")
-require("src/requests")
-require("src/homepage.js")
+require("src/signup")
+require("src/feeds")
 import "@fortawesome/fontawesome-free/css/all"
 
 
