@@ -1,10 +1,12 @@
 .static_pages.feeds {
   display: flex;
-  height: 100vh;
+  height: 200vh;
   max-width: 1300px;
   margin-left: auto;
   margin-right: auto;
   padding: 0 10px;
+
+  
 
   .side-bar {
     list-style: none;
@@ -141,18 +143,16 @@
   }
 
 
-  .serach {
-    flex: 1;
-  }
 
   .search-input {
     display: flex;
-    padding: 10px;
+    padding: 20px;
     border-radius: 10px;
     align-items: center;
-    background-color: #e8f5fe;
+    background-color:  #e8f5fe;
     border-radius: 10px;
-    font-family: FontAwesome;
+    align-content: flex-start;
+    flex-direction: column;
   }
 
 
@@ -168,7 +168,9 @@
 
   .search-input  i {
     position: absolute;
-    margin-left: 10px;
+    margin-top: 15px;
+    margin-left: 40px;
+    left: 0;
     color: grey;
   }
 
@@ -182,4 +184,38 @@
     border-color: #e8f5fe;
 
   }
+  
+  .anchor-links {
+    text-decoration: none;
+    color: black;
+  }
+
+  .anchor-links:hover {
+    color: #50b7f5;
+  }
+
+  .trends-section {
+    display: flex;
+    flex-direction: column;
+
+  }
+
+  
+
+  .trend-section {
+    padding: 20px;
+    background-color:ghostwhite;
+    border-radius: 20px;
+  }
+
+  .trend {
+    padding-top: 10px;
+    cursor: pointer;
+    
+  }
+
+  .trend:hover {
+    color: lightblue;
+  }
+
  }

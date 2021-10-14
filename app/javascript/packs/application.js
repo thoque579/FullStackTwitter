@@ -10,6 +10,7 @@ require("@rails/activestorage").start()
 require("channels")
 require("src/signup")
 require("src/feeds")
+require("src/login")
 import "@fortawesome/fontawesome-free/css/all"
 
 

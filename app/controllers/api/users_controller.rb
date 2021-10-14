@@ -11,6 +11,7 @@ module Api
             email: @user.email
           }
         }
+
       else
         render json: {
           success: false

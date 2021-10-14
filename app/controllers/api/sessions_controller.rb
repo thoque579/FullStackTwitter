@@ -29,6 +29,7 @@ module Api
         render json: {
           authenticated: false,
         }
+        
       end
     end
 
