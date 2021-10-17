@@ -1,0 +1,19 @@
+// Place all the styles related to the authenticated_pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.authenticated_pages.authenticated_home {
+  background-image: url("https://cdn.wallpapersafari.com/7/20/TlRLvY.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  .fa-twitter {
+    color: #50b7f5;
+  }
+
+  #redirFeeds-btn {
+    border-radius: 20px;
+    background-color: #1DA1F2
+  }
+  
+
+}

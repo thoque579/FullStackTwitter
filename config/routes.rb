@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get 'signup' => 'static_pages#signup'
   get '/login' => 'static_pages#login'
   get '/feeds' => 'static_pages#feeds'
+  get '/home' => 'static_pages#home'
+  get '/authenHome' => 'authenticated_pages#authenticated_home';
   namespace :api do
     #user
     post '/users' => 'users#create'

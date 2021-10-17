@@ -2,26 +2,26 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Main page</title>
+    <title>Welcome</title>
   </head>
   <body>
     <%= render "shared/navbar" %>
           <div class="main">
             <div class="container">
-            <div id = "display-message">
-              </div>
               <div class="row">
                   <div class="col-6 welcome">
                     <div id="welcome">
+                      <div id ="display-message">
+
+                      </div>
                       <h1 class = "text-white text-wrap mt-4"><strong>Welcome to Twitter</strong></h1>
                       <p class = "text-white">Connect with your friends and other fascinating people. Get in-the-moment updates on the things that interest you</p>
                     </div>
-                    <a href="/login"><button type="button" class="btn btn-info">Log in</button></a>
-                    <a href="/signup"><button type="button" class="btn btn-info">Sign up</button></a>
+                    <button type="button" name="button" id = "redirFeeds-btn" class = "btn btn-info"><a href="/feeds" style = "text-align:center; text-decoration: none; color: #fff">Feeds Page</a></button>
                   </div>
               </div>
             </div>
           </div>
           <%= render "shared/footer" %>
-      </body>
+  </body>
 </html>

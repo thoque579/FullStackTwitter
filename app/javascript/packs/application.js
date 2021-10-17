@@ -11,6 +11,8 @@ require("channels")
 require("src/signup")
 require("src/feeds")
 require("src/login")
+require("src/home")
+require("src/authenHome")
 import "@fortawesome/fontawesome-free/css/all"
 
 

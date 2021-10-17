@@ -1,0 +1,2 @@
+module AuthenticatedPagesHelper
+end

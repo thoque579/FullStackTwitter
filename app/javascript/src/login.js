@@ -7,7 +7,7 @@ document.addEventListener("turbolinks:load", function() {
         fetch('/api/authenticated')
         .then(handleErrors)
         .then(res => {
-          if (res.authenticated === true) {
+          if (res.authenticated) {
             location.href = "/feeds";
 
             var displayFeedsMessage = document.getElementById("displayAlertMessage");
@@ -39,18 +39,18 @@ document.addEventListener("turbolinks:load", function() {
                 setTimeout(() => {
                   authenticate();
                 }, 1000)
-                
+
                 var displayMessage = document.getElementById("displayAlertMessage");
                 var createContainer = document.createElement("div");
                 createContainer.setAttribute("class", "alert alert-success");
                 displayMessage.appendChild(createContainer).innerHTML = "You logged in successfully";
-                
+
               } else {
                 var displayMessage = document.getElementById("displayAlertMessage");
                 var createContainer = document.createElement("div");
                 createContainer.setAttribute("class", "alert alert-danger");
                 displayMessage.appendChild(createContainer).innerHTML = "Invalid User or Password";
-               
+
 
 
               }

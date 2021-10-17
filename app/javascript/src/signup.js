@@ -11,7 +11,7 @@ document.addEventListener("turbolinks:load", function () {
       .then(res => {
         if (res.authenticated === true) {
           location.href = "/feeds"
-          
+
         }
       })
       .catch(error => {
@@ -57,18 +57,18 @@ document.addEventListener("turbolinks:load", function () {
       .then(res => {
           if (res.success) {
              signIn(username, password);
-            var displaySuccessMessage = document.getElementById("display-message");
+            var displaySuccessMessage = document.getElementById("displayAlertMessage");
             var newElement = document.createElement("div");
             newElement.setAttribute('class','alert alert-success');
             displaySuccessMessage.appendChild(newElement).innerText = "You successfully logged in";
-          
+
           } else {
-          
-            var displaySuccessMessage = document.getElementById("display-message");
+
+            var displaySuccessMessage = document.getElementById("displayAlertMessage");
             var newElement = document.createElement("div");
             newElement.setAttribute("class", "alert alert-danger");
             displaySuccessMessage.appendChild(newElement).innerText = "Account already exists";
-            
+
           }
       })
       .catch(error => {
