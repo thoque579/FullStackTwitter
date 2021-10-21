@@ -68,7 +68,15 @@ document.addEventListener("turbolinks:load", function () {
             var newElement = document.createElement("div");
             newElement.setAttribute("class", "alert alert-danger");
             displaySuccessMessage.appendChild(newElement).innerText = "Account already exists";
-
+            var newButton = document.createElement("button");
+            newButton.setAttribute("type", "button");
+            newButton.setAttribute("class", "close mb-4");
+            newButton.setAttribute("data-dismiss", "alert");
+            newButton.setAttribute("aria-label", "Close");
+            newElement.appendChild(newButton);
+            var span = document.createElement("span");
+            span.setAttribute("aria-hidden", "true");
+            newButton.appendChild(span).innerText = "x";
           }
       })
       .catch(error => {

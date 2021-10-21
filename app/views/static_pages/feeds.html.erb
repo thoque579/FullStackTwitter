@@ -11,16 +11,37 @@
         </section>
       </div>
         <div class="feed">
-          <button class = "btn btn-primary" id = "logout">log out</button>
+          <span class ="current-user-headline">Current User:</span>
+              <a href = '/profile' id = "current-user"></a>
+            <button class = "btn-sm btn-primary" id = "logout">log out</button>
+
+            <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" id = "modalHideClick" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                      <form id = "tweetFormModal">
+                        <input type="text" name="" value="" placeholder="Whats happening?" id = "tweetBoxInputModal">
+                        <div class="modal-footer">
+                          <span id = "char-counter">140 characters remaining</span>
+                          <button type="submit" name="button" id = "Post_tweet_modal" class = "btn btn-info"><i class="fab fa-twitter mr-1"></i>Tweet</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+            </div>
+
           <h2 class = "feed_header">Home</h2>
           <div class="tweetBox">
-            <form>
+            <form id = "addingTweet">
               <div class="tweetBoxInput">
                 <img src="https://www.pngarts.com/files/3/Avatar-PNG-Pic.png" alt="Avatar" class = "img_avatar">
-                <input type="text" name="" value="" placeholder="whats happening" id = "tweetBoxInput">
+                <input type="text" name="tweetAdd" placeholder="whats happening" id = "tweetBoxInput">
               </div>
-              <button type="button" name="button" id = "Post_tweet"><span class = "button-text">Tweet</span></button>
+              <button type="submit" name="button" id = "Post_tweet"><span class = "button-text">Tweet</span></button>
             </form>
+
+          </div>
+          <div id = 'tweets'>
+
           </div>
         </div
         <div class="search-feature">
@@ -32,7 +53,7 @@
               <h4>Trends For You</h4>
           </div>
           <div class = "trend">
-              #Hongkong   
+              #Hongkong
           </div>
           <div class = "trend">
               #Ruby

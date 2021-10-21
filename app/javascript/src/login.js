@@ -1,7 +1,7 @@
 import { safeCredentials, handleErrors } from './utils/fetchHelper'
 
 
-document.addEventListener("turbolinks:load", function() {
+document.addEventListener("turbolinks:load", function () {
     if (document.querySelectorAll(".static_pages.login").length > 0) {
       var authenticate = () => {
         fetch('/api/authenticated')

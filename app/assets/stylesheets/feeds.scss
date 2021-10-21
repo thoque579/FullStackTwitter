@@ -156,6 +156,7 @@
 
   .search-input input[type=text] {
     padding-left: 40px;
+    margin-left: 10px;
   }
 
   .search-input {
@@ -197,8 +198,6 @@
 
   }
 
-
-
   .trend-section {
     padding: 20px;
     background-color:ghostwhite;
@@ -214,5 +213,33 @@
   .trend:hover {
     color: lightblue;
   }
+
+  #tweetBoxInputModal {
+    padding: 20px;
+    flex: 1;
+    margin-left: 20px;
+    font-size: 20px;
+    margin-top: 10px;
+    width: 700px;
+    border-radius: 20px;
+    border: none;
+  }
+
+  #Post_tweet_modal {
+      border: none;
+      color: white;
+      border-radius: 30px;
+    	background-color: #1DA1F2;
+      border-color: #1DA1F2;
+
+  }
+
+  #Post_tweet_modal:hover {
+    	background-color: #1DA1F2;
+      transition: 200ms ease-out;
+
+  }
+
+
 
  }

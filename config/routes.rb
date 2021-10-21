@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/feeds' => 'static_pages#feeds'
   get '/home' => 'static_pages#home'
   get '/authenHome' => 'authenticated_pages#authenticated_home';
+  get '/profile' => 'static_pages#profile';
   namespace :api do
     #user
     post '/users' => 'users#create'

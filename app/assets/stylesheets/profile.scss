@@ -1,0 +1,83 @@
+.static_pages.profile {
+  display: flex;
+  height: 200vh;
+  max-width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 10px;
+
+  .side-bar {
+    list-style: none;
+    margin: 0;
+    border-right: 1px solid #e8f5fe;
+  }
+
+  .sideNavOption {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 20px;
+  }
+  .sideNavOption:hover {
+    background-color: #e8f5fe;
+    border-radius: 30px;
+    color: #50b7f5;
+    transition: color 100ms ease-out;
+    width: 200px;
+  }
+  .icon-text {
+    padding-left: 20px;
+    font-weight: 700;
+    font-size: 20px;
+    margin-right: 20px;
+
+  }
+
+  .tweet-button {
+    height: 50px;
+    margin-right: 20px;
+    margin-top: 20px;
+    padding: 10px;
+    border: none;
+    width: 250px;
+    background-color: #50b7f5;
+    border-radius: 30px;
+    color: white;
+  }
+
+  .tweet-button:hover {
+    color: #e8f5fe;
+    background-color: #50b7f5;
+  }
+
+  .sideNavOptionMain > .fa-twitter {
+    color: #50b7f5;
+    font-size: 30px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    cursor: pointer;
+  }
+
+  .current-user {
+    font-weight: bolder;
+    font-size: 30px;
+    display: inline-block;
+    position: relative;
+    margin-left: 200px;
+    margin-top: 20px;
+    display: flex;
+  }
+
+  .anchor-links {
+    text-decoration: none;
+    color: black;
+  }
+
+  .fa-twitter {
+    color: #50b7f5;
+  }
+
+
+    
+ }

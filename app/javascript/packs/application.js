@@ -13,6 +13,7 @@ require("src/feeds")
 require("src/login")
 require("src/home")
 require("src/authenHome")
+require("src/profile")
 import "@fortawesome/fontawesome-free/css/all"
 
 

@@ -6,9 +6,13 @@ module Api
      end
 
      def create
-       @tweets = Tweet.create(tweet_params)
+      token = cookies.signed[:twitter_session_token]
+      session = Session.find_by(token: token)
+      user = session.user
 
-       if @task.save
+      @tweet = user.tweets.new(tweet_params)
+
+       if @tweet.save
          render 'api/tweets/create'
        end
      end
@@ -18,7 +22,7 @@ module Api
       session = Session.find_by(token: token)
 
       user = session.user
-      tweet = Tweet.find_by(id: params: [:id])
+      tweet = Tweet.find_by(id: params[:id])
 
       if tweet and tweet.user === user and tweet.destroy
         render json: {
@@ -40,9 +44,10 @@ module Api
         end
     end
 
-
-  private
+    private
     def tweet_params
-      params.require(:tweets).permit(:message, :image)
-    end
+      params.require(:tweet).permit(:message, :image)
+
+  end
+end
 end
