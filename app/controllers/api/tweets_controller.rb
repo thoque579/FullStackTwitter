@@ -1,6 +1,10 @@
 module Api
   class TweetsController < ApplicationController
     def index
+      token = cookies.signed[:twitter_session_token]
+      session = Session.find_by(token: token)
+      @current_user = session.user
+
       @tweets = Tweet.all
       render 'api/tweets/index'
      end

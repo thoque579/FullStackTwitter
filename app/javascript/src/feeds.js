@@ -65,23 +65,90 @@ document.addEventListener("turbolinks:load", function() {
 
     /* Tweet Function */
 
-    const addTweets = (message, image) => {
+    const injectTweets = (message, user) => {
+      let tweetFeed = document.getElementById("tweets");
+
+      let tweetContainer = document.createElement("div");
+
+      tweetContainer.setAttribute("class", "card");
+
+      let tweet_content = document.createElement("div")
+
+      tweet_content.setAttribute("class", "card-content");
+
+      let content = document.createElement('span');
+
+      content.innerHTML = message + " " + user;
+
+
+      let deleteButton = document.createElement("button");
+      deleteButton.className = "btn btn-danger";
+      deleteButton.setAttribute("id", "delete-button");
+      deleteButton.innerHTML = "remove";
+
+      tweetFeed.appendChild(tweetContainer);
+      tweetContainer.appendChild(tweet_content);
+      tweet_content.appendChild(content);
+      content.appendChild(deleteButton);
+    }
+
+    const createTweets = (message, image) => {
       fetch("/api/tweets", safeCredentials({
         method: "POST",
         body: JSON.stringify({
           tweet: {
             message: message,
-            image: image? image : null
+            image: image
           }
         })
       }))
       .then(handleErrors)
       .then(res => {
         let userMessage = res.tweet.message;
-        let tweetBox = document.getElementById('tweets');
-        tweetBox.innerHTML = userMessage;
+        let user = res.tweet.username;
+        console.log(userMessage);
+        console.log(user);
+        injectTweets(userMessage, user);
       })
     }
+
+    const injectAllTweets = (message, user) => {
+      let tweetFeed = document.getElementById("tweets");
+
+      let tweetContainer = document.createElement("div");
+
+      tweetContainer.setAttribute("class", "card");
+
+      let tweet_content = document.createElement("div")
+
+      tweet_content.setAttribute("class", "card-content");
+
+      let content = document.createElement('span');
+
+      content.innerHTML = message + " " + user;
+
+      tweetFeed.appendChild(tweetContainer);
+      tweetContainer.appendChild(tweet_content);
+      tweet_content.appendChild(content);
+
+    }
+
+    const getAll = () => {
+      fetch('/api/tweets')
+      .then(handleErrors)
+      .then(res => {
+        res.tweets.forEach(item => {
+          console.log(item.message);
+          console.log(item.username);
+          injectAllTweets(item.message, item.username);
+          console.log(item.belongs_to_current_user);
+
+        })
+      })
+    }
+
+    getAll();
+
 
 
     const addTweetForm = document.getElementById("addingTweet");
@@ -91,7 +158,7 @@ document.addEventListener("turbolinks:load", function() {
       e.preventDefault();
       const message = document.getElementById("tweetBoxInput").value;
 
-      addTweets(message)
+      createTweets(message)
     })
 
 
@@ -99,11 +166,11 @@ document.addEventListener("turbolinks:load", function() {
 
     setTimeout(function() {
         const addTweetModal = document.getElementById("tweetFormModal");
+        const currentUser = document.getElementById("current-user")
 
         addTweetModal.addEventListener("submit", (e) => {
           e.preventDefault();
           const message = document.getElementById("tweetBoxInputModal").value;
-          addTweets(message);
           $("#modalHideClick").modal('hide');
         })
     }, 1000)

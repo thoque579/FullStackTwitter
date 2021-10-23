@@ -240,6 +240,14 @@
 
   }
 
+  .card {
+    padding: 20px;
+  }
 
+
+  #delete-button {
+    flex-direction:row-reverse;
+    display: flex;
+  }
 
  }
