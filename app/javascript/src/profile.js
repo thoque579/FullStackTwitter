@@ -7,7 +7,7 @@ document.addEventListener("turbolinks:load", function () {
       .then(handleErrors)
       .then(res => {
         if (res.authenticated) {
-        
+          console.log('true');
         } else {
           console.log("false");
         }

@@ -8,26 +8,22 @@
     <%= render "shared/navbarFeeds" %>
     <div class="container">
       <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-lg">
-              <div class="modal-content">
-                <input type="text" name="" value="" placeholder="Whats happening?" id = "tweetBoxInputModal">
-                <div class="modal-footer">
-                  <span id = "char-counter">140 characters remaining</span>
-                  <button type="button" name="button" id = "Post_tweet_modal" class = "btn btn-info"><i class="fab fa-twitter mr-1"></i>Tweet</button>
-                </div>
-              </div>
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <input type="text" name="" value="" placeholder="Whats happening?" id="tweetBoxInputModal">
+            <div class="modal-footer">
+              <span id="char-counter">140 characters remaining</span>
+              <button type="button" name="button" id="Post_tweet_modal" class="btn btn-info">
+                <i class="fab fa-twitter mr-1"></i>Tweet</button>
             </div>
-      </div>
-
-        <div class="profile">
-          <p id ="currentUserContainer" style = "font-weight: bold">Current user: <span id = "test">test</span></p>
-
-            <div class="userTweets">
-              
-            </div>
-
-
+          </div>
         </div>
+      </div>
+      <div class="profile">
+        <p id="currentUserContainer" style="font-weight: bold">Current user:
+          <span id="test">test</span></p>
+        <div class="userTweets"></div>
+      </div>
     </div>
   </body>
 </html>

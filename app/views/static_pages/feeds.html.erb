@@ -8,67 +8,66 @@
     <div class="flex-container">
       <section>
         <%= render "shared/navbarFeeds" %>
-        </section>
+      </section>
+    </div>
+    <div class="feed">
+      <div class="userInfo">
+        <span class="current-user-headline ml-3 font-weight-bold">Current User:</span>
+        <a href='/profile' id="current-user"></a>
+        <button class="btn-sm btn-primary ml-2" id="logout">log out</button>
       </div>
-        <div class="feed">
-          <span class ="current-user-headline">Current User:</span>
-              <a href = '/profile' id = "current-user"></a>
-            <button class = "btn-sm btn-primary" id = "logout">log out</button>
-
-            <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" id = "modalHideClick" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                      <form id = "tweetFormModal">
-                        <input type="text" name="" value="" placeholder="Whats happening?" id = "tweetBoxInputModal" required>
-                        <div class="modal-footer">
-                          <span id = "char-counter">140 characters remaining</span>
-                          <button type="submit" name="button" id = "Post_tweet_modal" class = "btn btn-info"><i class="fab fa-twitter mr-1"></i>Tweet</button>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-            </div>
-
-          <h2 class = "feed_header">Home</h2>
-          <div class="tweetBox">
-            <form id = "addingTweet">
-              <div class="tweetBoxInput">
-                <img src="https://www.pngarts.com/files/3/Avatar-PNG-Pic.png" alt="Avatar" class = "img_avatar">
-                <input type="text" name="tweetAdd" placeholder="whats happening" id = "tweetBoxInput" required>
+      <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" id="modalHideClick" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <form id="tweetFormModal">
+              <input type="text" name="" value="" placeholder="Whats happening?" id="tweetBoxInputModal" required="required">
+              <div class="modal-footer">
+                <span id="char-counter">140 characters remaining</span>
+                <button type="submit" id="Post_tweet_modal" class="btn btn-info"><i class="fab fa-twitter mr-1"></i>Tweet</button>
               </div>
-              <button type="submit" name="button" id = "Post_tweet"><span class = "button-text">Tweet</span></button>
             </form>
-
-          </div>
-          <div id = 'tweets'>
-
-          </div>
-        </div
-        <div class="search-feature">
-          <div class="search-input">
-            <i class="fas fa-search"></i>
-            <input type="text" placeholder="Search Twitter" class = "search_twitter"/>
-            <div class = "trend-section mt-5">
-          <div class = "trend-header">
-              <h4>Trends For You</h4>
-          </div>
-          <div class = "trend">
-              #Hongkong
-          </div>
-          <div class = "trend">
-              #Ruby
-          </div>
-          <div class = "trend">
-              #foobarbaz
-          </div>
-          <div class = "trend">
-            #Rails
-          </div>
-          <div class = "trend">
-            #Programming
           </div>
         </div>
+      </div>
+      <h2 class="feed_header font-weight-bold">Home</h2>
+      <div class="tweetBox">
+        <form id="tweetForm">
+          <div class="tweetBox">
+            <img src="https://www.pngarts.com/files/3/Avatar-PNG-Pic.png" alt="Avatar" class="img_avatar">
+            <input type="text" name="tweetAdd" placeholder="whats happening" id="tweetBoxInput" required="required">
+            <input type="file" id = "image-select" name = "image" accept = "image/*" hidden>
+            <label for="image-select"><i class="fas fa-camera"></i></label>
           </div>
+          <button type="submit" id="Post_tweet">
+            <span class="button-text">Tweet</span></button>
+        </form>
+      </div>
+      <div id='tweets'></div>
+    </div <div class="search-feature">
+    <div class="search-input">
+      <i class="fas fa-search"></i>
+      <input type="text" placeholder="Search Twitter" class="search_twitter"/>
+      <div class="trend-section mt-5">
+        <div class="trend-header">
+          <h4>Trends For You</h4>
         </div>
-  </body>
+        <div class="trend">
+          #Hongkong
+        </div>
+        <div class="trend">
+          #Ruby
+        </div>
+        <div class="trend">
+          #Fried chicken
+        </div>
+        <div class="trend">
+          #Rails
+        </div>
+        <div class="trend">
+          #Programming
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
 </html>

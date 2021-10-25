@@ -70,7 +70,6 @@
 
   .feed_header {
     font-size: 20px;
-    font-weight: 800;
     position: sticky;
     top: 0;
     background-color: white;
@@ -123,8 +122,18 @@
     border-style: solid;
     width: 50px;
     height: 50px;
-    margin-left: 10px;
+    margin-left: 20px;
   }
+
+  .img_avatar_tweet {
+    border-radius: 50%;
+    border-style: solid;
+    width: 50px;
+    height: 50px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+  }
+
 
   #tweetBoxInput {
     padding: 20px;
@@ -240,14 +249,62 @@
 
   }
 
-  .card {
-    padding: 20px;
-  }
 
 
-  #delete-button {
-    flex-direction:row-reverse;
+  #delete {
     display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    margin-top: 20px;
+    border-radius: 50px;
+
+
   }
 
+  .content {
+    margin-left: 80px;
+    margin-top: 10px;
+  }
+
+  .current-user {
+    position: absolute;
+    top: 0;
+    margin-left: 30px;
+    padding-bottom: 10px;
+  }
+
+  #test-card {
+    padding: 10px 10px 10px;
+    margin-top: 10px;
+    border-radius: 10px;
+  }
+
+  .username {
+    position: absolute;
+    top: 0;
+    margin-left: 80px;
+    margin-top: 18px;
+  }
+
+  .user {
+    position: absolute;
+    top: 0;
+    margin-left: 200px;
+    margin-top: 18px;
+  }
+
+  #logout {
+    background-color: #1DA1F2;
+    border-radius: 20px;
+    border-style: none;
+  }
+
+  .userInfo {
+    margin-bottom: 20px;
+  }
+ }
+
+
+ i.fab.fa-twitter {
+   color: #1DA1F2;
  }

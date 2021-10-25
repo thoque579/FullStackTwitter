@@ -4,5 +4,10 @@ json.tweets do
     json.username tweets.user.username
     json.message tweets.message
     json.belongs_to_current_user tweets.user == @current_user
+    if tweets.image.attached?
+      json.image url_for(tweet.image)
+    else
+      json.image nil
+    end
   end
 end

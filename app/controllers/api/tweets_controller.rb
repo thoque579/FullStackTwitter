@@ -5,7 +5,7 @@ module Api
       session = Session.find_by(token: token)
       @current_user = session.user
 
-      @tweets = Tweet.all
+       @tweets = Tweet.all.order(created_at: :desc)
       render 'api/tweets/index'
      end
 
