@@ -1,11 +1,7 @@
-import {
-  safeCredentials,
-  handleErrors
-} from 'src/utils/fetchHelper';
+import { safeCredentials,handleErrors } from 'src/utils/fetchHelper';
 
-document.addEventListener("turbolinks:load", function() {
+document.addEventListener("turbolinks:load", () => {
   if (document.querySelectorAll(".static_pages.feeds").length > 0) {
-
     fetch("/api/authenticated")
       .then(handleErrors)
       .then(res => {
@@ -42,11 +38,8 @@ document.addEventListener("turbolinks:load", function() {
     logoutButton.addEventListener("click", function() {
       logout();
     })
-  }
-
 
   /* character counter */
-
   const textBoxModal = document.getElementById("tweetBoxInputModal");
   const max_char = 140;
   const characters_remaining = document.getElementById("char-counter");
@@ -61,122 +54,121 @@ document.addEventListener("turbolinks:load", function() {
     }
   })
 
+
   /* Tweet Function */
 
   const createTweets = (message, image) => {
-    fetch("/api/tweets", safeCredentials({
-        method: "POST",
-        body: JSON.stringify({
-          tweet: {
-            message: message,
-            image: image
-          }
+        fetch("/api/tweets", safeCredentials({
+          method: "POST",
+          body: JSON.stringify({
+            tweet: {
+              message: message,
+              image: image
+            }
+          })
+        }))
+        .then(handleErrors)
+        .then(res => {
+          getAll();
         })
-      }))
-      .then(handleErrors)
-      .then(res => {
-        getAll();
-      })
-  }
+    }
 
-  const getAll = () => {
-    fetch('/api/tweets')
-      .then(handleErrors)
-      .then(res => {
-        let tweetFeed = document.getElementById("tweets");
-        tweetFeed.innerHTML = ""
-        res.tweets.forEach(item => {
-          let currentUser = item.belongs_to_current_user;
-          let username = item.username;
-          let userId = item.id;
-          let message = item.message;
+    const getAll = () => {
+      fetch('/api/tweets')
+        .then(handleErrors)
+        .then(res => {
+          let tweetFeed = document.getElementById("tweets");
+          tweetFeed.innerHTML = ""
+          console.log(res.tweets);
 
-          if (currentUser) {
-            $("#tweets").append(`
-                <div class="card">
-                    <div class="card-body">
-                      <img src="https://hips.hearstapps.com/digitalspyuk.cdnds.net/17/13/1490989105-twitter1.jpg?resize=480:*" alt="" class = "img_avatar_tweet">
-                      <div class="card-content">
-                        <div class="username font-weight-bold"><p>${username} <i class="far fa-check-circle"></i></p></div>
-                        <div class="user"><p><a href="#">@${username}</a></p></div>
-                      </div>
-                      <div class="card" id = "test-card">
+          res.tweets.forEach(item => {
+            let currentUser = item.belongs_to_current_user;
+            let username = item.username;
+            let userId = item.id;
+            let message = item.message;
+
+            if (currentUser) {
+              $("#tweets").append(`
+                  <div class="card">
+                      <div class="card-body">
+                        <img src="https://hips.hearstapps.com/digitalspyuk.cdnds.net/17/13/1490989105-twitter1.jpg?resize=480:*" alt="" class = "img_avatar_tweet">
                         <div class="card-content">
-                          <span class = "card-text">${message}</span>
+                          <div class="username font-weight-bold"><p>${username} <i class="far fa-check-circle"></i></p></div>
+                          <div class="user"><p><a href="#">@${username}</a></p></div>
                         </div>
+                        <div class="card" id = "test-card">
+                          <div class="card-content">
+                            <span class = "card-text">${message}</span>
+                          </div>
 
+                        </div>
+                        <button type="click" name="button" class = "btn btn-danger btn-sm" id = "delete" data-id = ${userId}><i class="fas fa-trash"></i></button>
                       </div>
-                      <button type="click" name="button" class = "btn btn-danger btn-sm" id = "delete" data-id = ${userId}><i class="fas fa-trash"></i></button>
+                    </div>
+                `)
+            } else {
+              $("#tweets").append(`
+                  <div class="card">
+                      <div class="card-body">
+                        <img src="https://hips.hearstapps.com/digitalspyuk.cdnds.net/17/13/1490989105-twitter1.jpg?resize=480:*" alt="" class = "img_avatar_tweet">
+                        <div class="card-content">
+                          <div class="username font-weight-bold"><p>${username} <i class="far fa-check-circle"></i></p></div>
+                          <div class="user"><p><a href="#">@${username}</a></p></div>
+                        </div>
+                        <div class="card" id = "test-card">
+                          <div class="card-content">
+                            <span class = "card-text">${message}</span>
+                          </div>
+                        </div>
                     </div>
                   </div>
               `)
-          } else {
-            $("#tweets").append(`
-                <div class="card">
-                    <div class="card-body">
-                      <img src="https://hips.hearstapps.com/digitalspyuk.cdnds.net/17/13/1490989105-twitter1.jpg?resize=480:*" alt="" class = "img_avatar_tweet">
-                      <div class="card-content">
-                        <div class="username font-weight-bold"><p>${username} <i class="far fa-check-circle"></i></p></div>
-                        <div class="user"><p><a href="#">@${username}</a></p></div>
-                      </div>
-                      <div class="card" id = "test-card">
-                        <div class="card-content">
-                          <span class = "card-text">${message}</span>
-                        </div>
-                      </div>
-                  </div>
-                </div>
-            `)
-          }
+            }
+          })
         })
-      })
-  }
+    }
 
   getAll();
 
+    const tweetForm = document.getElementById("tweetForm");
 
-  //   const deleteTweets = (id) => {
-  //     fetch("/api/tweets" + id, {
-  //       method: "DELETE"
-  //     })
-  //     .then(handleErrors)
-  //     .then(res => {
-  //       if (res.success) {
-  //         displayTweets();
-  //       } else {
-  //         console.log(res);
-  //       }
-  //     })
-  //   }
-  //
-  // setTimeout(() => {
-  //   const deleteButton = document.getElementById("delete");
-  //   deleteButton.addEventListener("submit", () => {
-  //     let dataId = deleteButton.getAttribute("data-id");
-  //     deleteTweets(dataId);
-  //   })
-  //
-  // }, 1000)
-  //
+      tweetForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        let message = document.getElementById("tweetBoxInput").value
+        let image = document.getElementById("image-select").files[0];
+        console.log(image);
+        createTweets(message, image);
+        document.getElementById("tweetBoxInput").value = "";
+      })
 
-  const tweetForm = document.getElementById("tweetForm");
+      const addTweetModal = document.getElementById("tweetFormModal");
+      const currentUser = document.getElementById("current-user")
 
-  tweetForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    let message = document.getElementById("tweetBoxInput").value;
-    let image = document.getElementById("image-select").files[0];
-    createTweets(message, image);
-    document.getElementById("tweetBoxInput").value = "";
-  })
+      addTweetModal.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const message = document.getElementById("tweetBoxInputModal").value;
+        $("#modalHideClick").modal('hide');
+        createTweets(message);
+        document.getElementById("tweetBoxInputModal").value = "";
+      })
 
+      const deleteTweet = (id) => {
+          fetch("/api/tweets/" + id, {
+            method: "DELETE"
+          })
+          .then(handleErrors)
+          .then(res => {
+            if (res.success) {
+              getAll();
+            } else {
+              console.log(res)
+            }
+          })
 
-  const addTweetModal = document.getElementById("tweetFormModal");
-  const currentUser = document.getElementById("current-user")
+      }
 
-  addTweetModal.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const message = document.getElementById("tweetBoxInputModal").value;
-    $("#modalHideClick").modal('hide');
-    createTweets(message);
-  })
-}, 1000)
+      $(document).on('click', '#delete', function () {
+        deleteTweet($(this).data('id'));
+      });
+  }
+})

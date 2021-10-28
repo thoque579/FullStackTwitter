@@ -8,17 +8,17 @@
     <%= render "shared/navbar" %>
     <div class="container">
       <div class="row">
-        <div class="col-lg-6 login text-align-center">
+        <div class="col-12 col-md-12 col-lg-6" id="login-container">
           <form id="login">
             <div id="displayAlertMessage"></div>
-            <h1>log in</h1>
+            <h2 class="main-heading">Login</h2>
             <div class="form-group">
               <input type="text" name="username" id="username_input" class="form-control" placeholder="Username" required="required"/>
             </div>
             <div class="form-group">
               <input type="password" name="password" id="password_input" class="form-control" placeholder="Password" required="required"/>
             </div>
-            <button type="submit" class="btn btn-success">log in</button>
+            <button type="submit" class="btn btn-success  signup-button">Login</button>
             <p>Don't have an account?
               <a class="text-primary" href="/signup">Sign up</a>
             </p>

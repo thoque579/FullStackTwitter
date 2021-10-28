@@ -2,9 +2,12 @@
   background-image: url("https://cdn.wallpapersafari.com/7/20/TlRLvY.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
 
   .fa-twitter {
     color: #50b7f5;
   }
+
 
 }

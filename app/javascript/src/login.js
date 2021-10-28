@@ -63,5 +63,38 @@ document.addEventListener("turbolinks:load", function() {
       signIn(userInput, passwordInput);
     })
 
+    fetch('/api/authenticated')
+    .then(handleErrors)
+    .then(res => {
+      console.log(res.username);
+      if (res.authenticated) {
+        let username = res.username;
+        var displayMessage = document.getElementById("displayAlertMessage");
+        var createNew = document.createElement("div");
+        createNew.setAttribute("class", "alert alert-info mt-3 alert-dismissible");
+        createNew.setAttribute("role", "alert");
+        let spanUserContainer = document.createElement('span');
+        let spanAnchor = document.createElement('a');
+        spanAnchor.setAttribute('href', '/feeds');
+        spanAnchor.setAttribute('class', 'usernameInAlert');
+        spanUserContainer.appendChild(spanAnchor);
+        displayMessage.appendChild(createNew).innerText = `You're already logged in as ${username}. \n Do you want to log in as a different user?`;
+
+        var newButton = document.createElement("button");
+        newButton.setAttribute("type", "button");
+        newButton.setAttribute("class", "close mb-4");
+        newButton.setAttribute("data-dismiss", "alert");
+        newButton.setAttribute("aria-label", "Close");
+        createNew.appendChild(newButton);
+        var span = document.createElement("span");
+        span.setAttribute("aria-hidden", "true");
+        newButton.appendChild(span).innerText = "x";
+      } else {
+        alert('false');
+      }
+    })
+
+
+
   }
 });

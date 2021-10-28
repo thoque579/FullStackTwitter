@@ -1,15 +1,15 @@
 .static_pages.login {
-  background-image: url("https://www.pixelstalk.net/wp-content/uploads/2016/06/Starry-Night-Backgrounds.jpg");
+  background-color: #50b7f5;
   background-repeat: no-repeat;
   background-size: cover;
 
-  .login {
-    background-color: white;
-    border-radius: 20px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    margin-top: 20px;
+  #login-container {
+    background-color: #fff;
+    border-radius: 30px;
+    margin: 25px auto auto auto;
     text-align: center;
+    display: flex;
+    justify-content: center;
   }
 
   .navbar-brand {
@@ -19,4 +19,15 @@
   .navbar-brand:hover {
     border-color: #e8f5fe;
   }
+
+  .signup-button {
+    border-radius: 50px;
+    background-color: #50b7f5;
+    width: 100px;
+  }
+
+  .main-heading {
+    margin-top: 20px;
+  }
+  
 }

@@ -90,15 +90,14 @@
 
   .side-navbar::-webkit-scrollbar {
     display: none;
-
   }
 
   .tweetBox {
     padding-bottom: 10px;
     border-bottom: 5px solid #e8f5fe;
     padding-right: 10px;
-
   }
+
   .tweetBox > form {
       display: flex;
       flex-direction: column;
@@ -148,8 +147,6 @@
     border-radius: 20px;
   }
 
-
-
   .search-input {
     display: flex;
     padding: 20px;
@@ -161,8 +158,6 @@
     flex-direction: column;
   }
 
-
-
   .search-input input[type=text] {
     padding-left: 40px;
     margin-left: 10px;
@@ -171,7 +166,6 @@
   .search-input {
     position: relative;
   }
-
 
   .search-input  i {
     position: absolute;
@@ -189,7 +183,6 @@
 
   .search_twitter:focus input[type=text] {
     border-color: #e8f5fe;
-
   }
 
   .anchor-links {
@@ -204,7 +197,6 @@
   .trends-section {
     display: flex;
     flex-direction: column;
-
   }
 
   .trend-section {
@@ -249,16 +241,12 @@
 
   }
 
-
-
   #delete {
     display: flex;
     justify-content: flex-end;
     flex-direction: column;
     margin-top: 20px;
     border-radius: 50px;
-
-
   }
 
   .content {
@@ -302,9 +290,5 @@
   .userInfo {
     margin-bottom: 20px;
   }
- }
 
-
- i.fab.fa-twitter {
-   color: #1DA1F2;
  }

@@ -41,6 +41,9 @@ module Api
 
     def index_by_user
       user = User.find_by(username: params[:username])
+      token = cookies.signed[:twitter_session_token]
+      session = Session.find_by(token: token)
+      @current_user = session.user
 
         if user
           @tweets = user.tweets
