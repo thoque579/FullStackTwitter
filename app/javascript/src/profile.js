@@ -3,6 +3,7 @@ import { safeCredentials, handleErrors } from './utils/fetchHelper'
     document.addEventListener("turbolinks:load", () => {
 
       if (document.querySelectorAll(".static_pages.profile").length > 0) {
+
       fetch('/api/authenticated/')
       .then(handleErrors)
       .then(res => {
@@ -42,44 +43,29 @@ import { safeCredentials, handleErrors } from './utils/fetchHelper'
 
             let username = tweet.username;
             let message = tweet.message;
+            console.log(tweet.belongs_to_current_user);
             console.log(tweet.id);
-            $(".feeds").append(`
-                <div class="card">
-                    <div class="card-body">
-                      <img src="https://hips.hearstapps.com/digitalspyuk.cdnds.net/17/13/1490989105-twitter1.jpg?resize=480:*" alt="" class = "img_avatar_tweet">
-                      <div class="card-content">
-                        <div class="username font-weight-bold"><p>${username} <i class="far fa-check-circle"></i></p></div>
-                        <div class="user"><p><a href="#">@${username}</a></p></div>
-                      </div>
-                      <div class="card" id = "test-card">
+            if (tweet.belongs_to_current_user) {
+              $("#feeds").append(`
+                  <div class="card">
+                      <div class="card-body">
+                        <img src="https://hips.hearstapps.com/digitalspyuk.cdnds.net/17/13/1490989105-twitter1.jpg?resize=480:*" alt="" class = "img_avatar_tweet">
                         <div class="card-content">
-                          <span class = "card-text">${message}</span>
+                          <div class="username font-weight-bold"><p>${username} <i class="far fa-check-circle"></i></p></div>
+                          <div class="user"><p><a href="#">@${username}</a></p></div>
+                        </div>
+                        <div class="card" id = "test-card">
+                          <div class="card-content">
+                            <span class = "card-text">${message}</span>
+                          </div>
                         </div>
                       </div>
-                      <button type="click" name="button" class = "btn btn-danger btn-sm" id = "delete" data-id = ${tweet.id}><i class="fas fa-trash"></i></button>
                     </div>
-                  </div>
-              `)
+                `)
+            }
+
           })
         })
       }
-
-      const deleteTweet = (id) => {
-        fetch("/api/tweets/" + id, {
-          method: "DELETE"
-        })
-        .then(handleErrors)
-        .then(res => {
-          if (res.success) {
-            getAllCurrent();
-          } else {
-            console.log(res)
-          }
-        })
-      }
-
-    $(document).on('click', '#delete', () => {
-      deleteTweet($(this).data('id'));
-    })
   }
 })

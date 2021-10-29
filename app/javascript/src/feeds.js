@@ -57,13 +57,12 @@ document.addEventListener("turbolinks:load", () => {
 
   /* Tweet Function */
 
-  const createTweets = (message, image) => {
+  const createTweets = (message) => {
         fetch("/api/tweets", safeCredentials({
           method: "POST",
           body: JSON.stringify({
             tweet: {
-              message: message,
-              image: image
+              message: message
             }
           })
         }))
@@ -135,9 +134,7 @@ document.addEventListener("turbolinks:load", () => {
       tweetForm.addEventListener('submit', function(e) {
         e.preventDefault();
         let message = document.getElementById("tweetBoxInput").value
-        let image = document.getElementById("image-select").files[0];
-        console.log(image);
-        createTweets(message, image);
+        createTweets(message);
         document.getElementById("tweetBoxInput").value = "";
       })
 
@@ -164,7 +161,6 @@ document.addEventListener("turbolinks:load", () => {
               console.log(res)
             }
           })
-
       }
 
       $(document).on('click', '#delete', function () {
