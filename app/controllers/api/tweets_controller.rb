@@ -30,11 +30,12 @@ module Api
 
       if tweet and tweet.user === user and tweet.destroy
         render json: {
-          success: true
+          success: true,
+          username: tweet.user.username
         }
       else
         render json: {
-          success: false
+          success: false,
         }
       end
     end

@@ -1,4 +1,4 @@
-import { safeCredentials,handleErrors } from 'src/utils/fetchHelper';
+import { safeCredentials, handleErrors, safeCredentialsFormData } from 'src/utils/fetchHelper';
 
 document.addEventListener("turbolinks:load", () => {
   if (document.querySelectorAll(".static_pages.feeds").length > 0) {
@@ -54,17 +54,19 @@ document.addEventListener("turbolinks:load", () => {
     }
   })
 
-
   /* Tweet Function */
 
-  const createTweets = (message) => {
-        fetch("/api/tweets", safeCredentials({
+  const createTweets = (message, image) => {
+    let formData = new FormData();
+    formData.append("tweet[message]", message);
+
+    if (image) {
+      formData.append("tweet[image]", image);
+    }
+
+        fetch("/api/tweets", safeCredentialsFormData({
           method: "POST",
-          body: JSON.stringify({
-            tweet: {
-              message: message
-            }
-          })
+          body: formData
         }))
         .then(handleErrors)
         .then(res => {
@@ -86,6 +88,8 @@ document.addEventListener("turbolinks:load", () => {
             let userId = item.id;
             let message = item.message;
 
+            let image = item.image;
+
             if (currentUser) {
               $("#tweets").append(`
                   <div class="card">
@@ -98,11 +102,11 @@ document.addEventListener("turbolinks:load", () => {
                         <div class="card" id = "test-card">
                           <div class="card-content">
                             <span class = "card-text">${message}</span>
-                          </div>
-
-                        </div>
-                        <button type="click" name="button" class = "btn btn-danger btn-sm" id = "delete" data-id = ${userId}><i class="fas fa-trash"></i></button>
+                            <br>
+                          ` + (image != null? `<span class = "card-text"><img class = "user-image" src = "${image}" height = "500" width = "600" ></span></div></div>` : '') +  `
+                          <span class = "card-text"><button type="click" name="button" class = "btn btn-danger btn-sm" id = "delete" data-id = "${userId}"><i class="fas fa-trash"></i></button></span>
                       </div>
+                    </div>
                     </div>
                 `)
             } else {
@@ -117,35 +121,40 @@ document.addEventListener("turbolinks:load", () => {
                         <div class="card" id = "test-card">
                           <div class="card-content">
                             <span class = "card-text">${message}</span>
+                            <br>
+                            ` + (image != null? `<span class = "card-text"><img class = "user-image" src = "${image}" height = "500" width = "600" ></span></div></div>` : '') + `
                           </div>
                         </div>
                     </div>
-                  </div>
-              `)
+                  </div>`
+                 )
             }
           })
         })
     }
 
-  getAll();
+    getAll();
 
     const tweetForm = document.getElementById("tweetForm");
 
       tweetForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        let message = document.getElementById("tweetBoxInput").value
-        createTweets(message);
+        let message = document.getElementById("tweetBoxInput").value;
+        let image = document.getElementById("image-select").files[0];
+        createTweets(message, image);
         document.getElementById("tweetBoxInput").value = "";
+
       })
 
       const addTweetModal = document.getElementById("tweetFormModal");
-      const currentUser = document.getElementById("current-user")
+      const currentUser = document.getElementById("current-user");
 
       addTweetModal.addEventListener("submit", (e) => {
         e.preventDefault();
         const message = document.getElementById("tweetBoxInputModal").value;
+        const image = document.getElementById("image-select-modal").files[0];
         $("#modalHideClick").modal('hide');
-        createTweets(message);
+        createTweets(message, image);
         document.getElementById("tweetBoxInputModal").value = "";
       })
 
@@ -161,10 +170,11 @@ document.addEventListener("turbolinks:load", () => {
               console.log(res)
             }
           })
-      }
+        }
 
       $(document).on('click', '#delete', function () {
         deleteTweet($(this).data('id'));
       });
+
   }
 })

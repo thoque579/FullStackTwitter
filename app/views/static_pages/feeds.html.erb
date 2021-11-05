@@ -24,6 +24,8 @@
               <div class="modal-footer">
                 <span id="char-counter">140 characters remaining</span>
                 <button type="submit" id="Post_tweet_modal" class="btn btn-info"><i class="fab fa-twitter mr-1"></i>Tweet</button>
+                <input type="file" id = "image-select-modal" name = "image" accept = "image/*" hidden>
+                <label for="image-select-modal"><i class = "fas fa-camera mt-2"></i></label>
               </div>
             </form>
           </div>
@@ -35,6 +37,8 @@
           <div class="tweetBox">
             <img src="https://www.pngarts.com/files/3/Avatar-PNG-Pic.png" alt="Avatar" class="img_avatar">
             <input type="text" name="tweetAdd" placeholder="whats happening" id="tweetBoxInput" required="required">
+            <input type="file" id = "image-select" name = "image" accept = "image/*" hidden>
+            <label for="image-select"><i class="fas fa-camera"></i></label>
           </div>
           <button type="submit" id="Post_tweet">
             <span class="button-text">Tweet</span></button>

@@ -40,11 +40,14 @@ import { safeCredentials, handleErrors } from './utils/fetchHelper'
             newButton.appendChild(span).innerText = "x";
           }
           res.tweets.forEach(tweet => {
-
+            console.log(tweet);
             let username = tweet.username;
             let message = tweet.message;
+            let userId = tweet.id;
+            let image = tweet.image;
             console.log(tweet.belongs_to_current_user);
             console.log(tweet.id);
+
             if (tweet.belongs_to_current_user) {
               $("#feeds").append(`
                   <div class="card">
@@ -56,7 +59,8 @@ import { safeCredentials, handleErrors } from './utils/fetchHelper'
                         </div>
                         <div class="card" id = "test-card">
                           <div class="card-content">
-                            <span class = "card-text">${message}</span>
+                          <span class = "card-text ml-auto">${message}</span>
+                            <br> ` + (image != null? `<span class = "card-text"><img src = "${image}" height = "500" width = "600"></span>` : '') + `
                           </div>
                         </div>
                       </div>
@@ -67,5 +71,8 @@ import { safeCredentials, handleErrors } from './utils/fetchHelper'
           })
         })
       }
+
+
+
   }
 })

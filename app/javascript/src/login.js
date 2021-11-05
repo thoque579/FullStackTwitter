@@ -90,7 +90,7 @@ document.addEventListener("turbolinks:load", function() {
         span.setAttribute("aria-hidden", "true");
         newButton.appendChild(span).innerText = "x";
       } else {
-        alert('false');
+        console.log('you can login');
       }
     })
 
