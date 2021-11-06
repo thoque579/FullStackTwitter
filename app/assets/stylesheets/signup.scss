@@ -1,5 +1,5 @@
 .static_pages.signup {
-  background-image: url("http://s1.picswalls.com/wallpapers/2016/06/06/beach-desktop-wallpapers_090608503_305.jpg");
+  background-color: #50b7f5;
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
@@ -7,12 +7,12 @@
   margin-right: auto;
 
   .layout {
-    background-color: white;
-    border-radius: 20px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    margin-top: 20px;
+    background-color: #fff;
+    border-radius: 30px;
+    margin: 25px auto auto auto;
     text-align: center;
+    display: flex;
+    justify-content: center;
 
   }
 
