@@ -55,8 +55,7 @@ import { safeCredentials, handleErrors } from './utils/fetchHelper'
             let message = tweet.message;
             let userId = tweet.id;
             let image = tweet.image;
-            console.log(tweet.belongs_to_current_user);
-            console.log(tweet.id);
+            
 
             if (tweet.belongs_to_current_user) {
               $("#feeds").append(`
