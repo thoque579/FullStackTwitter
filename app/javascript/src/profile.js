@@ -11,11 +11,21 @@ import { safeCredentials, handleErrors } from './utils/fetchHelper'
           console.log(res);
           let current_user = document.getElementById("current_user");
           current_user.innerHTML = res.username;
-          getAllCurrent(res.username);
+          let params = new URLSearchParams(window.location.search);
+          if (params.has('@user')) {
+            let test = params.get('@user');
+            current_user.innerHTML = test;
+            getAllCurrent(test);
+          } else {
+            getAllCurrent(res.username);
+          }
+
         } else {
           location.href = "/home?info=invalid_loggedIn"
         }
       })
+
+
 
         const getAllCurrent = (username) => {
         fetch("/api/users/" + username + "/tweets")
@@ -66,11 +76,31 @@ import { safeCredentials, handleErrors } from './utils/fetchHelper'
                       </div>
                     </div>
                 `)
+            } else {
+              $("#feeds").append(`
+                  <div class="card">
+                      <div class="card-body">
+                        <img src="https://hips.hearstapps.com/digitalspyuk.cdnds.net/17/13/1490989105-twitter1.jpg?resize=480:*" alt="" class = "img_avatar_tweet">
+                        <div class="card-content">
+                          <div class="username font-weight-bold"><p>${username} <i class="far fa-check-circle"></i></p></div>
+                          <div class="user"><p><a href="#">@${username}</a></p></div>
+                        </div>
+                        <div class="card" id = "test-card">
+                          <div class="card-content">
+                          <span class = "card-text ml-auto">${message}</span>
+                            <br> ` + (image != null? `<span class = "card-text"><img src = "${image}" height = "500" width = "600"></span>` : '') + `
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                `)
             }
 
           })
         })
       }
+
+
 
 
 

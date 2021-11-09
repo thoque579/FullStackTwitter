@@ -7,4 +7,7 @@ class StaticPagesController < ApplicationController
     render 'feeds'
   end
 
+  def profile
+    render 'profile'
+  end
 end

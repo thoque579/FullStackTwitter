@@ -97,7 +97,7 @@ document.addEventListener("turbolinks:load", () => {
                         <img src="https://hips.hearstapps.com/digitalspyuk.cdnds.net/17/13/1490989105-twitter1.jpg?resize=480:*" alt="" class = "img_avatar_tweet">
                         <div class="card-content">
                           <div class="username font-weight-bold"><p>${username} <i class="far fa-check-circle"></i></p></div>
-                          <div class="user"><p><a href="#">@${username}</a></p></div>
+                          <div class="user"><p><a href="/profile">@${username}</a></p></div>
                         </div>
                         <div class="card" id = "test-card">
                           <div class="card-content">
@@ -116,7 +116,7 @@ document.addEventListener("turbolinks:load", () => {
                         <img src="https://hips.hearstapps.com/digitalspyuk.cdnds.net/17/13/1490989105-twitter1.jpg?resize=480:*" alt="" class = "img_avatar_tweet">
                         <div class="card-content">
                           <div class="username font-weight-bold"><p>${username} <i class="far fa-check-circle"></i></p></div>
-                          <div class="user"><p><a href="#">@${username}</a></p></div>
+                          <div class="user"><p><a href="/profile?@user=${username}">@${username}</a></p></div>
                         </div>
                         <div class="card" id = "test-card">
                           <div class="card-content">
